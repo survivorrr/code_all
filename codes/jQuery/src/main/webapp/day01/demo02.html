@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	window.onload = function(){
+		$("img").width(218).height(218);//定义图片的初始大小
+	}
+	function print1(){
+		//使用选择器获取的是JQuery对象
+		var $ps = $("p");
+		console.log($ps);
+		for(var i=0;i<$ps.length;i++){
+			//jquery对象中获取的值是dom
+			var p = $ps[i];
+			console.log(p.innerHTML);
+		}
+	}
+	
+	//调用时传入了this，它指代点击的那个图片，这是一个dom对象
+	function chg(img){
+		console.log($(img).width());
+		console.log($(img).height());
+		if($(img).width()==218){
+			$(img).width(800).height(800);
+		}else{
+			$(img).width(218).height(218);
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="打印" onclick="print1();"/>
+	<p>1.jquery对象只能使用jquery方法</p>
+	<p>2.dom对象只能使用dom方法</p>
+	<p>3.jquery对象本质上就是dom数组</p>
+	<div>
+		<img src="../images/01.jpg" id="img" onclick="chg(this);"/>
+	</div>
+</body>
+</html>

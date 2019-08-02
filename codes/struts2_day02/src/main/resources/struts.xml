@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package namespace="/login" name="login" extends="struts-default">
+	<!-- 这个action没有class，其用途是在请求/login/form时候转发到login.jsp，使用户能够看到这个jsp页面 -->
+		<action name="form">
+			<result>/WEB-INF/login.jsp</result>
+		</action>
+		<action name="check" class="cn.tedu.action.LoginAction">
+			<result name="success">/WEB-INF/success.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
+		</action>
+		
+		<action name="form2">
+			<result>/WEB-INF/login2.jsp</result>
+		</action>
+		<action name="check2" class="cn.tedu.action.LoginAction2">
+			<result name="success">/WEB-INF/success2.jsp</result>
+			<result name="error">/WEB-INF/login2.jsp</result>
+		</action>
+		
+		<action name="test" class="cn.tedu.action.TestAction">
+			<result name="success">/WEB-INF/demo.jsp</result>
+		</action>
+		
+		<!-- 使用spring管理的action组件webAction，在配置Action期间，将class属性引用Bean ID 即可 -->
+		<action name="web" class="webAction">
+			<result name="success">/WEB-INF/success.jsp</result>
+		</action>
+	</package>
+</struts>

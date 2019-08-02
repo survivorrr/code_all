@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+ <!-- resources/struts.xml  相当于   spring-mvc.xml -->
+<struts>
+<!-- namespace用于定义一级请求路径 
+	http://localhost:8080/struts2_day01/demo/hello
+-->
+	<package namespace="/demo" name="demo" extends="struts-default">
+		<!-- 当用户请求demo/hello时候，struts就会利用反射创建DemoAction对象，并且执行execute方法 -->
+		<action name="hello" class="cn.tedu.action.DemoAction">
+			<!-- <result>用于处理execute方法返回值，与jsp视图的对应关系，也就是转发到哪个页面 -->
+			<result name="msg">/WEB-INF/msg.jsp</result>
+		</action>
+		
+		<!--method为对应的函数方法  -->
+		<action name="test" class="cn.tedu.action.DemoAction" method="test">  <!-- 反射执行方法 -->
+			<result name="success">/WEB-INF/msg.jsp</result>
+		</action>
+		
+		<!-- 从浏览器中接收参数 -->
+		<action name="param" class="cn.tedu.action.ParamAction">
+			<result name="success">/WEB-INF/msg.jsp</result>
+		</action>
+	</package>
+</struts>

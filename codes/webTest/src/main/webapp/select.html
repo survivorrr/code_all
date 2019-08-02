@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    var cities;
+	window.onload = function(){
+		cities = [
+			["石家庄","保定","廊坊"],
+			["广州","深圳","东莞"],
+			["南宁","桂林","玉林"]	
+		];
+	}
+	
+	function chg(){
+		var sel1 = document.getElementById("province");//获得父节点
+		var n = sel1.value;
+		var pcities = cities[n];
+		//删除旧的城市
+		var sel2 = document.getElementById("city");//获得父节点
+		
+		sel2.innerHTML = "<option>请选择</option>";//这个简便点，下面注释的方式也可以。
+		
+		/* var options = sel2.getElementsByTagName("option");//获得子节点
+		for(var i=options.length-1;i>0;i--){
+			sel2.removeChild(options[i]);//删除节点
+		} */
+		//追加新的城市
+		if(pcities){
+			for(var i=0;i<pcities.length;i++){
+				var option = document.createElement("option");//创建新节点
+				option.innerHTML = pcities[i];
+				sel2.appendChild(option);//追加子节点
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	省:
+	<select id="province" onchange = "chg();" ><!-- onchange是值改变触发事件 -->
+		<option value="">请选择</option>
+		<option value="0">河北省</option>
+		<option value="1">广东省</option>
+		<option value="2">广西省</option>
+	</select>
+	市：
+	<select id="city">
+		<option>请选择</option>
+
+	</select>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>一系列声明</title>
+<style>
+	/*1.四个边设置相同的边框*/
+	p{
+		border:1px dashed red;
+	}
+	/*1.单个变设置边框     left/right/top/bottom*/
+	h1{
+		border-left:10px solid blue;
+	}
+	/*块元素一般宽度默认是100%，高度会自适应，内容越多，它越高
+		当给它固定高度时可能会导致内容溢出*/
+		p{
+			width:300px;
+			height:60px;
+			/*溢出时的处理,有滚动条*/
+			overflow:auto;
+		}
+</style>
+</head>
+<body>
+	<h1>苍老师</h1>
+	<p>
+		刘苍松，是达内java教学总监
+		是java教学改革的先驱
+		同时他也是一名摄影爱好者
+		他拍的片都很么么哒
+		他最擅长捕捉肉体和灵魂的契合点
+		能够折射出对人性的思考与鞭挞
+	</p>
+</body>
+</html>

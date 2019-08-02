@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<p><a href="#footer">一键到底</a></p>
+	<!-- 1.标题(块：块是可以独立成行的) -->
+	<h1>苍老师</h1>
+	<h2>范传奇</h2>
+	<h3>王克金</h3>
+	<!-- 2.段落 -->
+	<p>范传奇暗恋王克金</p>
+	<p><a href="#cang">苍老师</a>吃醋</p>
+	<!-- 3.列表 -->
+	<!-- 3.1有序列表 -->
+	<ol>
+		<li>湖南</li>
+		<li>湖北</li>
+		<li>河北</li>
+	</ol>
+	<!-- 3.2无序列表-->
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li>广州</li>
+	</ul>
+	<!--3.3嵌套列表  -->
+	<ol>
+		<li>河北省
+			<ul>
+				<li>石家庄</li>
+				<li>邢台</li>
+			</ul>
+		</li>
+		<li>
+			山东省
+			<ul>
+				<li>济南</li>
+				<li>青岛</li>
+			</ul>
+		</li>
+	</ol>
+	
+	<!-- 4.行内元素 -->
+	<p>
+		北 京 市<i>海定区</i>北<b>三环</b>西路甲<u>18号</u><span style="color: red">中鼎大厦</span>B座
+	</p>
+	
+	<!-- 5.空格折叠 -->
+	<p>
+		那是一个&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 秋天，<br>
+		看着传奇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 跑偏。<br>
+		奔着克晶&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 而去，<br>
+		误入老苍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 心间。<br>
+	</p>
+	
+	<!-- 6.图片(行内，左右排列) -->
+	<!-- 1)绝对路径 
+	       从盘符开始写出图片的完整的路径
+	       如 D:/images/1.jpg
+	       如 home/soft01/images/1.jpg-->
+	<!-- 2)相对路径 
+		只需要写出图片和网页的相对位置
+		优点：
+			a.简单
+			b.上线时将项目存到那个盘符下，网页和图片的相对位置没有变化.-->
+	<p>
+		<!-- 图片和网页平级 -->
+		<img src="01.jpg"/>
+		<img src="05.jpg"/>
+		<img src="06.jpg"/>
+		<!-- 图片在网页下级 -->
+		<img src="demo3.1/02.jpg"/>
+		
+		<!-- 图片在网页的上级 -->
+		<img src="../03.jpg"/>
+		<img src="../images/04.jpg"/>
+	</p>
+	
+     <br><!-- 换行 -->
+     <br>
+     <br>
+     <br>
+     
+	<!-- 7.超链接(行内) -->
+	<!-- 7.1超链接的一般用法 -->
+	<p>
+		<a href="http://www.tmooc.cn" target="_blank">达内</a>  <!-- 不可返回 -->
+		<a href="http://www.tedu.cn" target="_self">文档</a>   <!-- 可返回,不写target默认为_self -->
+	</p>
+	<!-- 超链接的特殊用法 
+	  将超链接链接到本网页的某个位置
+	  1)这个位置叫做锚点
+	  2)必须提前声明锚点-->
+	  <p>
+	  	<a name="cang">苍老师</a>是个好老师，<br>
+	  	不但会讲课，还会拍片子.
+	  </p>
+
+	  
+	  <!-- 8.表格(块) -->
+	  <!-- 8.1表格的基本结构 -->
+	  	<table border="1" cellspacing="0" width="30%">
+	  	<tr>
+	  		<td>苍老师</td>
+	  		<td>范创奇</td>
+	  	</tr>	
+	  	<tr>
+	  		<td>王克晶</td>
+	  		<td>程祖红</td>
+	  	</tr>
+	    </table>
+	    
+	    <br>
+	  <!-- 8.2跨行 -->
+	  	<table border="1" cellspacing="0" width="30%">
+	  	<tr>
+	  		<td rowspan="2">苍老师</td>
+	  		<td>范创奇</td>
+	  	</tr>	
+	  	<tr>
+	  		<!--  <td>王克晶</td>  -->
+	  		<td>程祖红</td>
+	  	</tr>
+	    </table>
+	    
+	    <br>
+	  <!-- 8.3跨列 -->
+	  	<table border="1" cellspacing="0" width="30%">
+	  	<tr>
+	  		<td colspan="2">苍老师</td>
+	  		<!-- <td>范创奇</td> -->
+	  	</tr>	
+	  	<tr>
+	  		<td>王克晶</td>
+	  		<td>程祖红</td>
+	  	</tr>
+	    </table>
+	    
+	    <br>
+	  <!-- 8.4行分组(对行分区)-->
+	  
+	 <table border="1" cellspacing="0" width="40%">
+	 <thead>
+	 	<tr>
+	 		<td>编号</td>
+	 		<td>名称</td>
+	 		<td>金额</td>
+	 	</tr>
+	 </thead>
+	 <tbody style="color:blue;">
+	 	<tr>
+	 		<td>1</td>
+	 		<td>鼠标</td>
+	 		<td>50</td>
+	 	</tr>
+	 	<tr>
+	 		<td>2</td>
+	 		<td>键盘</td>
+	 		<td>100</td>
+	 	</tr>
+	 </tbody>
+	 <tfoot>
+	 	<tr>
+	 		<td colspan="2">合计</td>
+	 		<!-- <td></td>  -->
+	 		<td>150</td>
+	 	</tr>
+	 </tfoot>
+	 </table>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <!-- 顶部默认就是锚点，没有名字 -->
+	  <p><a href="#">回到顶部</a></p> 
+	  <p><a name="footer">footer</a></p>
+</body>
+</html>

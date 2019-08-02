@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	window.onload = function(){
+		//1.基本选择器(和css选择器一样)
+		//2.层次选择器
+		//2.1选择子孙/儿子(和css派生选择器一样)
+		//2.2选择弟弟
+		console.log($("#gz+li"));//下一个弟弟
+		console.log($("#gz~"));//下面的所有弟弟
+		//3.过滤选择器(*)
+		//3.1基本过滤选择器(*)
+		console.log($("li:first"));//选择第一个li
+		console.log($("li:even"));//选择下标为偶数的li
+		console.log($("li:eq(1)"));//选择下标为1的li
+		console.log($("li:not(#gz)"));//选择出去广州的所有li
+		//3.2内容过滤选择器
+		console.log($("li:contains('海')"));
+		//3.3可见性过滤选择器
+		console.log($("li:hidden"));
+		//3.5状态过滤选择器
+		console.log($("input:enabled"));
+		console.log($("input:checked"));
+		//4.表单选择器
+		console.log($("input:radio"));
+	}
+</script>
+</head>
+<body>
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li id="gz">广州</li>
+		<li>深圳</li>
+		<li>天津</li>
+		<li style="display:none;">杭州</li>
+	</ul>
+	<p>
+		<input type="text" disabled/>
+		<input type="password"/>
+	</p>
+	<p>
+		<input type="radio" name="sex" checked/>
+		<input type="radio" name="sex"/>
+	</p>
+</body>
+</html>

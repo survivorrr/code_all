@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>一系列选择器</title>
+<style>
+	/*类选择器：选择class等于某值的所有元素.class是程序员根据逻辑自己给元素增加的分类*/
+	.girl{
+		color:pink;
+	}
+	/*id选择器：选择id等于某值的唯一的元素*/
+	#p4{
+		color:yellow;
+	}
+	/*选择器组：写出一组选择器，选中每个选择器所对应的目标的并集*/
+	.girl,#p4{
+		font-weight:bold;
+		font-size:50px;
+	}
+	/*5.派生选择器*/
+	/*5.1选择某元素的子孙*/
+	#p5 b{
+		color:red;
+	}
+	/*5.2选择某元素的儿子*/
+	#p5>b{
+		font-size:30px;
+	}
+	/*6.伪类选择器：根据元素的状态选择元素*/
+	/*6.1选择未访问过的超链接*/
+	a:link{
+		color:blue;
+	}
+	/*6.2选择已访问过的超链接*/
+	a:visited{
+		color:red;
+	}
+	/*6.3选择激活态（正在点）的按钮*/
+	#i1:active{
+		background-color:red;
+	}
+	/*6.4选择有焦点的文本框/密码框/文本*/
+	#i2:focus{
+		background-color:green;
+	}
+	/*6.5选择鼠标悬停态（触碰）的图片*/
+	img:hover{
+		width:800px;
+		height: 800px;
+	}
+</style>
+</head>
+<body>
+	<p class="girl">苍老师呀苍老师</p>
+	<p>范传奇呀范传奇</p>
+	<p class="girl">王克晶呀王克晶</p>
+	<p id="p4">瞧你们那点破事</p>
+	
+	<p id="p5">    
+		北京市<u>海定区<b>北三环</b>西路</u>甲18号<b>中鼎大厦</b>B座
+		<!-- 海定区是儿子，北三环是孙子，中鼎大厦是儿子 -->
+	</p>
+	
+	<p>
+		<a href="http://www.tmooc.cn">达内</a>
+		<a href="http://doc.tedu.cn">文档</a>
+	</p>
+	<p>
+		<input type="button" value="按钮" id="i1"/>
+	</p>
+	
+    <p>
+    	<input type="text" id="i2"/>
+    </p>
+    <p>
+    	<img src="../images/01.jpg"/>
+    </p>
+</body>
+</html>

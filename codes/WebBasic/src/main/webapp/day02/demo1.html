@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+</head>
+<body>
+	<!-- 1.表单元素
+		用来声明数据提交的范围，只有在此元素内的数据可以提交给服务器 
+		action:用来声明数据提交的目标
+		method/enctype:与服务器有直接连接,后讲-->
+	<form action="http://www.tmooc.cn">
+	<!-- 2.表单控件
+		用来给用户输入数据 -->
+		<!-- 1)input元素(9个) 
+			他们之间用type属性区分.-->
+		<!-- 文本框 
+			value:默认值
+			maxlength:长度
+			readonly:设置只读-->
+		<p>
+			账号:<input type="text"
+						value="tarena"
+						maxlength="10"
+						readonly/>
+		</p>
+		<!-- 密码框 ：属性同文本框-->
+		<p>
+			密码:<input type="password"/>
+		</p>
+		<!-- 单选框 
+			name:组名，同一组radio互斥
+			checked:设置默认选中
+			value：将来讲-->
+		<p>
+			性别：
+			<input type="radio" name="sex" checked/>男
+			<input type="radio" name="sex"/>女
+		</p>
+		<!-- 多选框 
+			checked:设置默认选中
+			name/value：将来讲-->
+		<p>
+			兴趣:
+				<input type="checkbox" checked/>音乐
+				<input type="checkbox"/>看书
+				<input type="checkbox"/>打球
+		</p>
+		<!-- 文件框 -->
+		<p>
+			头像：
+			<input type="file"/>
+		</p>
+		<!-- 隐藏框 -->
+		<p>
+			<input type="hidden" value="abc"/>
+		</p>
+		<!-- 提交按钮 -->
+		<p>
+			<input type="submit" value="注册"/>
+			<input type="reset" value="重置"/>
+			<input type="button" value="试试"/>
+			<!-- button没有任何功能，需通过js定义功能 -->
+		</p>
+		<!-- 重置按钮 -->
+		<p>
+			<input type="reset" value="重置"/>
+		</p>
+		<!-- 普通按钮 -->
+			<input type="button" value="试试" />
+		
+		<!-- 2)其他元素(3个) -->
+		<!-- label:用来管理表单中的文本,可以将文本与控件绑定在一起
+					从而增加了控件的受力面积
+		     id:元素的唯一标志，相当于元素的身份证号
+		                   任何元素都可以有id，程序员有义务保障元素的id不重复-->
+		<p>
+			<input type="checkbox" id="c1"/>
+			<label for="c1">我已阅读并自愿遵守此协议!</label>
+		</p>
+		<!-- select:下拉选
+			selected:设置默认选中
+			value:将来讲 -->
+		<p>
+		城市：
+		<select>
+			<option>请选择</option>
+			<option>广州</option>
+			<option>深圳</option>
+			<option selected>衡阳</option>
+			<option>赣州</option>
+			<option>长沙</option>
+		</select>
+		</p>
+
+		<!-- textarea:文本域 -->
+		<p>
+			简介:
+			<textarea rows="5" cols="30">这是文本域的默认值</textarea>
+		</p>
+	</form>
+</body>
+</html>

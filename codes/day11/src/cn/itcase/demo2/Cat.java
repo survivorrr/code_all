@@ -1,0 +1,13 @@
+package cn.itcase.demo2;
+
+public class Cat extends Animal{
+	public void eat()
+	{
+		System.out.println("√®≥‘√®¡∏");
+	}
+	
+	public void catchmouce()
+	{
+		System.out.println("√®◊Ω¿œ Û");
+	}
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.big {
+		font-size:30px;
+	}
+	.important {
+		color:red;
+	}
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+//页面加载之后调用这个函数，其作用等价于window.onload=function(){}
+	$(function(){
+		//1.读写节点
+		//1.1读写内容(双标签有内容)
+		//1)html() == innerHTML
+		console.log($("p:eq(0)").html());//读
+		$("p:eq(0)").html("jquery对<u>DOM操作</u>提供了支持");//写
+		//2)text() == innerText
+		console.log($("p:eq(0)").text());
+		//1.2读写值(表单控件有值)
+		//val() == value
+		console.log($("input:button:first").val());
+		$("input:button:first").val("BBB");
+		//1.3读写属性
+		//attr() == get/setAttribute()
+		console.log($("img:first").attr("src"));
+		$("img:first").attr("src","../images/02.jpg");
+		
+		//2.增删节点
+		//2.1创建节点
+		var $li1=$("<li>杭州</li>");
+		var $li2=$("<li>苏州</li>");
+		console.log($li1);
+		//2.2增加节点
+		$("ul").prepend($li1);
+		$("#gz").after($li2);
+		//2.3删除节点
+		$("li:last").remove();
+		
+		//3.遍历节点：查找某节点的亲戚。有些时候我们调用别人的方法得到的一个节点，
+				//对其进行一些操作，然后又要对此节点的亲戚进行操作。此时无法写选择器，只能调用这样的方法
+		//假设我调用了被人的方法得到了广州
+		var $gz = $("#gz");
+		//要获取广州的亲戚做进一步处理
+		console.log($gz.parent());//获取广州的父亲
+		console.log($gz.prev());//获取广州的哥哥
+		console.log($gz.siblings());//获取广州的所有兄弟
+		//假设我调用了被人的方法得到了ul
+		var $ul = $("ul");
+		//要获取列表的孩子作进一步处理
+		console.log($ul.find("li:gt(2)"));//ul下索引大于2的li
+		
+		//4.样式操作
+		$("p:first").addClass("big").addClass("important");//在第一个p上加上class等于big的属性
+		$("p:first").removeClass("big").removeClass("important");//删除样式
+		//删除所有样式 removeClass()
+		//判断元素是否包含某样式
+		console.log($("p:first").hasClass("big"));
+	});
+	
+	//切换样式
+	function daxiao(){
+		$("p:first").toggleClass("big");
+	}
+</script>
+</head>
+<body>
+	<p>jquery对<b>DOM操作</b>提供了支持</p>
+	<p>
+		<input type="button" value="AAA"/>
+	</p>
+	<p>
+		<img src="../images/01.jpg"/>
+	</p>
+	<ul>
+		<li>北京</li>
+		<li>上海</li>
+		<li id="gz">广州</li>
+		<li>深圳</li>
+		<li>天津</li>
+	</ul>
+	<p>
+		<input type="button" value="大小切换" onclick="daxiao();"/>
+	</p>
+</body>
+</html>

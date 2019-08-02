@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 1.完整路径
+		http://localhost:8080/servlet2/reg
+		 2.绝对路径
+		 /servlet2/reg
+		 3.相对路径
+		 只需写出目标和当前页面的相对位置
+		 当前页面:/servlet2/register.html
+		 访问目标:/servlet2/reg
+		 二者是平级关系，相对路径为reg
+		 注意：相对路径不能以/开头 -->
+	<form action="reg" method="post">
+		<p>
+			账号:<input type = "text" name="userName"/>
+		</p>
+		<p>
+			密码:<input type = "password" name="password"/>
+		</p>
+		<p>
+		<!-- 这里要给性别设置name，以备在servlet中获取性别，设置value
+			是以备返回在控制台上显示到底选中的是M还是F，不然控制台会显示on+
+			 -->
+			性别:<input type="radio" name="sex" value="M">男
+			性别:<input type="radio" name="sex" value="F">女
+		</p>
+		<p>
+			兴趣:
+			<input type = "checkbox" name="interest" value="sport"/>运动
+			<input type = "checkbox" name="interest" value="music"/>音乐
+			<input type = "checkbox" name="interest" value="movie"/>电影
+		</p>
+		<p>
+			<input type="submit" value="注册"/>
+		</p>
+	</form>
+</body>
+</html>

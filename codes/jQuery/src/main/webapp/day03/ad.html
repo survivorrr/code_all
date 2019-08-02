@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#ad1{
+		width:200px;
+		height:50px;
+		border:1px solid red;
+ 		position:fixed;
+		top:30px;
+		right:-180px;
+	}
+	#ad2{
+		width:100px;
+		height:100px;
+		border:1px solid red;
+/* 		top:50px;
+		left:50px;	 */
+		position:relative;
+	}
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+$(function(){
+	$("div:eq(0)").hover(function(){
+		$(this).animate({"right":"0px"},500);
+	},function(){
+		$(this).animate({"right":"-180px"},500);
+	});	
+});
+
+$(function(){
+	$("div:eq(1)").click(function(){
+		$(this).animate({"left":"800px"},3000)
+				.animate({"top":"800px"},3000)
+				.animate({"left":"0px"},3000)
+				.animate({"top":"0px"},3000);
+	})
+})
+</script>
+
+</head>
+<body>
+	<div id="ad1">
+		这是一个广告的区域
+	</div>
+	<div id="ad2">
+		这是一个游走的区域
+	</div>
+</body>
+</html>

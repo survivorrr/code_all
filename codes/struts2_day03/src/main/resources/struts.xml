@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+<struts>
+	<package namespace="/demo" name="demo" extends="json-default">
+		<action name="photo" class="photoAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/png</param>
+				<!-- in 是photoAction的一个bean属性，其类型必须是InputSteam类型 -->
+				<param name="inputName">photo</param>
+			</result>
+		</action>
+		
+		<action name="download" class="photoAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/png</param>
+				<param name="contentDisposition">attachment;filename="mylove.png"</param>
+				<!-- in 是photoAction的一个bean属性，其类型必须是InputSteam类型 -->
+				<param name="inputName">photo</param>
+			</result>
+		</action>
+		
+		<action name="excel" class="excelAction">
+			<result name="success" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+	<!-- 			<param name="contentDisposition">attachment;filename="excel.xls"</param> -->
+				<!-- in 是photoAction的一个bean属性，其类型必须是InputSteam类型 -->
+				<param name="inputName">excel</param>
+			</result>
+		</action>
+		
+		<action name="test" class="redirectAction">
+			<!-- redirect用于重定向到URL -->
+			<result name="doc" type="redirect">
+				http://baidu.com
+				<!-- location是默认值，可以不写param标签 -->
+				<!-- <param name="location">http://baidu.com</param> -->
+			</result>
+			
+			<!-- redirectAction用于重定向到action -->
+			<result name="photo" type="redirectAction">
+				photo
+			</result>
+		</action>
+		
+	</package>
+	
+	
+	
+	<package namespace="/test" name="test" extends="json-default">
+		<interceptors>
+			<interceptor name="demoInc" class="demoInterceptor"></interceptor>
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="basicStack"></interceptor-ref>
+				<interceptor-ref name="demoInc"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="demo" class="demoAction">
+			<interceptor-ref name="mystack"></interceptor-ref>
+			<result name="success">/WEB-INF/ok.jsp</result>
+		</action>
+		
+		<action name="stack" class="stackAction">
+			<result name="success">/WEB-INF/demo.jsp</result>
+		</action>
+	</package>
+</struts>

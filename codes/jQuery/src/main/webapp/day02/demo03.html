@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	$(function(){
+		//给按钮后绑定单击事件
+		$(":button").click(function(){
+			//启动定时器
+			var n = 0;
+			var id = setInterval(function(){
+				//获取下一个要处理的框
+				var $text = $(":text").eq(n);
+				//模拟光标切入事件
+				$text.trigger("focus");
+				//生成随机的分数，写入框内
+				var s = parseInt(Math.random()*100);
+				$text.val(s);
+				//都处理完就停止定时器
+				if(n==$(":text").length-1){
+					clearInterval(id);
+				}
+				n++;
+			},2000);
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<p>
+		<input type="button" value="打分"/>
+	</p>
+	<p>
+		苍老师：<input type="text"/>
+	</p>
+	<p>
+		范创奇：<input type="text"/>
+	</p>
+	<p>
+		王克晶：<input type="text"/>
+	</p>
+	<p>
+		李红鹤：<input type="text"/>
+	</p>
+</body>
+</html>
